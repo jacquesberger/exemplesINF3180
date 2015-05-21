@@ -4,20 +4,20 @@ drop table maison_disque;
 
 create table artiste (
   id number,
-  nom varchar2(255),
+  nom varchar2(25),
   est_solo number(1),
   constraint pk_artiste primary key (id)
 );
 
 create table maison_disque (
   id number,
-  nom varchar2(255),
+  nom varchar2(25),
   constraint pk_maison_disque primary key (id)
 );
 
 create table album (
   id number,
-  titre varchar2(255),
+  titre varchar2(25),
   annee number(4),
   artiste_id number,
   maison_disque_id number,
