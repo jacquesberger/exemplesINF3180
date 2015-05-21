@@ -6,6 +6,7 @@ create table artiste (
   id number,
   nom varchar2(25),
   est_solo number(1),
+  nombre_individus number(2),
   constraint pk_artiste primary key (id)
 );
 
@@ -26,13 +27,13 @@ create table album (
   constraint fk_albums_maison_disque foreign key (maison_disque_id) references maison_disque(id)
 );
 
-insert into artiste values (1, 'Michael Jackson', 1);
-insert into artiste values (2, 'Michael Buble', 1);
-insert into artiste values (3, 'Elvis Presley', 1);
-insert into artiste values (4, 'Iron Maiden', 0);
-insert into artiste values (5, 'Metallica', 0);
-insert into artiste values (6, 'The Sweet Database', 0);
-insert into artiste values (7, 'Computing Gods', 0);
+insert into artiste values (1, 'Michael Jackson', 1, 1);
+insert into artiste values (2, 'Michael Buble', 1, 1);
+insert into artiste values (3, 'Elvis Presley', 1, 1);
+insert into artiste values (4, 'Iron Maiden', 0, 6);
+insert into artiste values (5, 'Metallica', 0, 4);
+insert into artiste values (6, 'The Sweet Database', 0, 9);
+insert into artiste values (7, 'Computing Gods', 0, 3);
 
 insert into maison_disque values (1, 'Century Media');
 insert into maison_disque values (2, 'Nuclear Blast');
