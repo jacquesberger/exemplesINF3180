@@ -6,7 +6,7 @@ create table artiste (
   id number,
   nom varchar2(255),
   est_solo number(1),
-  constraint  pk_artiste primary key (id)
+  constraint pk_artiste primary key (id)
 );
 
 create table maison_disque (
