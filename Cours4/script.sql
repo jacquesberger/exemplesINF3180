@@ -21,7 +21,8 @@ create table Telephone (
   etudiant_id number(38) not null,
   descriptif varchar2(8) default 'Domicile' not null,
   constraint pk_telephone primary key (id),
-  constraint fk_telephone_etudiant foreign key(etudiant_id) references Etudiant(id),
+  constraint fk_telephone_etudiant foreign key(etudiant_id) references Etudiant(id)
+    on delete cascade,
   constraint c_longueur_telephone check(length(numero) = 10),
   constraint c_descriptif check(descriptif in ('Domicile', 'Mobile', 'Travail'))
 );
