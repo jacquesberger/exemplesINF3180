@@ -7,6 +7,9 @@ create table Etudiant (
   sexe number(1) not null check(sexe in (0, 1, 2, 9)),
   age number(3) not null,
   vivant number(1) default 1 not null check(vivant in (0, 1)),
+  code_permanent varchar2(12) not null,
   constraint pk_etudiant primary key (id),
-  check (age >= 18 and age < 125)
+  check (age >= 18 and age < 125),
+  unique(code_permanent),
+  unique(nom, prenom)
 );
