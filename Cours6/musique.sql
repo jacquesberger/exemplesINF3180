@@ -1,3 +1,6 @@
+drop sequence album_seq;
+drop sequence artiste_seq;
+drop sequence maison_disque_seq;
 drop table album;
 drop table artiste;
 drop table maison_disque;
