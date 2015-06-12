@@ -1,3 +1,4 @@
+drop view albums_annees_80;
 drop sequence album_seq;
 drop sequence artiste_seq;
 drop sequence maison_disque_seq;
@@ -66,3 +67,15 @@ create sequence album_seq start with 17;
 insert into artiste values (artiste_seq.nextVal, 'Bob Marley', 1, 1);
 insert into artiste values (artiste_seq.nextVal, 'Roch Voisine', 1, 1);
 insert into maison_disque values (maison_disque_seq.nextVal, 'Le studio Montreal');
+
+create view albums_annees_80 as
+  select album.id as id,
+         album.titre as titre,
+         album.annee as annee,
+         artiste.nom as artiste,
+         maison_disque.nom as maison_disque
+  from album
+       inner join artiste on artiste.id = album.artiste_id
+       inner join maison_disque on maison_disque.id = album.maison_disque_id
+  where
+    album.annee between 1980 and 1989;
