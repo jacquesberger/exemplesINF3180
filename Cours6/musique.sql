@@ -62,3 +62,7 @@ insert into album values (16, 'Metallica', 1991, 5, 2);
 create sequence artiste_seq start with 8;
 create sequence maison_disque_seq start with 4;
 create sequence album_seq start with 17;
+
+insert into artiste values (artiste_seq.nextVal, 'Bob Marley', 1, 1);
+insert into artiste values (artiste_seq.nextVal, 'Roch Voisine', 1, 1);
+insert into maison_disque values (maison_disque_seq.nextVal, 'Le studio Montreal');
