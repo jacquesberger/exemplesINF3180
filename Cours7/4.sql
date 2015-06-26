@@ -5,6 +5,7 @@ create or replace procedure ajouterAlbum
    nomArtiste artiste.nom%type) is
   idArtiste artiste.id%type;
   idMaisonDisque maison_disque.id%type;
+  ArgumentInvalide exception;
 begin
   select id
   into idMaisonDisque
@@ -21,6 +22,7 @@ begin
 exception
   when no_data_found then
     dbms_output.put_line('Erreur de reference');
+    raise ArgumentInvalide;
   when others then
     dbms_output.put_line('Erreur inconnue');
 end;
