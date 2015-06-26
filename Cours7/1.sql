@@ -1,6 +1,6 @@
-drop procedure afficherParametre;
+show errors
 
-create procedure afficherParametre
+create or replace procedure afficherParametre
   (param NUMBER) is
   -- Declarations
 begin
