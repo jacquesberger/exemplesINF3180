@@ -21,5 +21,7 @@ begin
 exception
   when no_data_found then
     dbms_output.put_line('Erreur de reference');
+  when others then
+    dbms_output.put_line('Erreur inconnue');
 end;
 /
