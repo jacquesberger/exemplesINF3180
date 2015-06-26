@@ -7,5 +7,3 @@ begin
   dbms_output.put_line('Voici le parametre : ' || to_char(param));
 end afficherParametre;
 /
-
-
