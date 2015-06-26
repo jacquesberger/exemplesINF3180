@@ -1,5 +1,3 @@
-show errors
-
 create or replace procedure afficherNombreAlbums is
   nombreAlbums NUMBER;
   maxAnnee Album.annee%type;

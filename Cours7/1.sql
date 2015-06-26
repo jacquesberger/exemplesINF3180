@@ -1,5 +1,3 @@
-show errors
-
 create or replace procedure afficherParametre
   (param NUMBER) is
   -- Declarations

@@ -1,10 +1,8 @@
-show errors
-
 create or replace procedure ajouterAlbum 
   (titreAlbum album.titre%type,
    anneeAlbum album.annee%type,
    maisonDisque maison_disque.nom%type,
-   artiste artiste.nom%type) is
+   nomArtiste artiste.nom%type) is
   idArtiste artiste.id%type;
   idMaisonDisque maison_disque.id%type;
 begin
@@ -16,7 +14,7 @@ begin
   select id
   into idArtiste
   from artiste
-  where nom = artiste;
+  where nom = nomArtiste;
 
   insert into album values (album_seq.nextval, titreAlbum, anneeAlbum, idArtiste, idMaisonDisque);
   dbms_output.put_line('Enregistre');

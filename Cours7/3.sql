@@ -1,5 +1,3 @@
-show errors
-
 create or replace procedure afficherSiAucunAlbum is
   nombreAlbums NUMBER;
 begin
