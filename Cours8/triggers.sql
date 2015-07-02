@@ -18,7 +18,7 @@ begin
   select count(*)
   into nombre
   from album
-  where artiste_id = old.id;
+  where artiste_id = avant.id;
 
   if nombre > 0 then
     raise_application_error(-20111, 'Impossible de modifier un artiste qui a des albums');
