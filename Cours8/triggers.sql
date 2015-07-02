@@ -23,3 +23,12 @@ begin
   end if;
 end;
 /
+
+create or replace trigger artiste_ajout
+before insert on artiste
+for each row
+when (:new.id is null)
+begin
+  :new.id := artiste_seq.nextval;
+end;
+/
