@@ -10,7 +10,7 @@ end;
 create or replace trigger artiste_empecherModification
 before update on artiste
 referencing
-  old row as avant
+  old as avant
 for each row
 when
   (select count(*)
