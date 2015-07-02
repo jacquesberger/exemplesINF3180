@@ -1,7 +1,7 @@
 -- Empêcher la suppression sur la table artiste.
 create or replace trigger artiste_empecherSuppression
-before delete id on artiste
-for each statement
+before delete on artiste
+for each row
 begin
   raise_application_error(-20100, 'Suppression impossible sur la table artiste');
 end;
