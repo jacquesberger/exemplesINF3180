@@ -17,7 +17,7 @@ begin
   end loop;
 exception
   when no_data_found then
-    dbms_output.put_line('Artiste non connu');
+    raise_application_error(-20010, 'Artiste inconnu');
   when others then
     raise_application_error(-20011, 'Erreur inconnue dans la procedure');
 end;
