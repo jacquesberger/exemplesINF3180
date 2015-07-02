@@ -5,7 +5,7 @@ create or replace procedure afficherPlusVieuxAlbums
     select titre, annee, artiste.nom
     from album
       inner join artiste on (album.artiste_id = artiste.id)
-    where annee = anneeDebut
+    where annee >= anneeDebut
     order by annee;
   titreAlbum album.titre%type;
   anneeAlbum album.annee%type;
