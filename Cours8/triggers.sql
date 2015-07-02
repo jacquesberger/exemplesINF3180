@@ -12,11 +12,16 @@ before update on artiste
 referencing
   old as avant
 for each row
-when
-  ((select count(*)
-   from album
-   where artiste_id = old.id) > 0)
+declare
+  nombre number;
 begin
-  raise_application_error(-20111, 'Impossible de modifier un artiste qui a des albums');
+  select count(*)
+  into nombre
+  from album
+  where artiste_id = old.id;
+
+  if nombre > 0 then
+    raise_application_error(-20111, 'Impossible de modifier un artiste qui a des albums');
+  end if;
 end;
 /
