@@ -62,3 +62,11 @@ begin
 end;
 /
 
+-- Afficher un message sur le serveur lors d'ajout, modification ou suppression d'un album
+create or replace trigger album_log
+after insert or update or delete on album
+for each row
+begin
+  dbms_output.put_line('Changement a la table album');
+end;
+/
