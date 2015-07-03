@@ -7,6 +7,7 @@ begin
 end;
 /
 
+-- Empêcher la modification d'un artiste avec album
 create or replace trigger artiste_empecherModification
 before update on artiste
 for each row
@@ -24,6 +25,7 @@ begin
 end;
 /
 
+-- Ajouter un id si l'artiste n'en a pas
 create or replace trigger artiste_ajout
 before insert on artiste
 for each row
@@ -32,3 +34,31 @@ begin
   :new.id := artiste_seq.nextval;
 end;
 /
+
+-- Stocker l'insertion dans la table historique
+create or replace trigger md_ajout
+after insert on maison_disque
+for each row
+begin
+  insert into historique_md values (:new.id, 'creation', sysdate);
+end;
+/
+
+-- Stocker la modification dans la table historique
+create or replace trigger md_modification
+after update on maison_disque
+for each row
+begin
+  insert into historique_md values (:new.id, 'modification', sysdate);
+end;
+/
+
+-- Stocker la suppression dans la table historique
+create or replace trigger md_suppression
+after delete on maison_disque
+for each row
+begin
+  insert into historique_md values (:old.id, 'suppression', sysdate);
+end;
+/
+

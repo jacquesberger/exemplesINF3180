@@ -4,6 +4,7 @@ drop sequence maison_disque_seq;
 drop table album;
 drop table artiste;
 drop table maison_disque;
+drop table historique_md;
 
 create table artiste (
   id number,
@@ -28,6 +29,12 @@ create table album (
   constraint pk_albums primary key (id),
   constraint fk_albums_artiste foreign key (artiste_id) references artiste(id),
   constraint fk_albums_maison_disque foreign key (maison_disque_id) references maison_disque(id)
+);
+
+create table historique_md (
+  reference number,
+  operation varchar2(12),
+  timestamp date
 );
 
 insert into artiste values (1, 'Michael Jackson', 1, 1);
